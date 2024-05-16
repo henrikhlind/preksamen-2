@@ -41,7 +41,7 @@ export default async function PartyTable(props: any) {
               const postal = await prisma.poststed.findFirst({ where: { postnr: party.postnr } });
               const fullPostal = (postal ? postal.postnr : '') + ' ' + (postal ? postal.sted : '');
               return (
-                <tr className="*:p-4 hover:bg-gray-100/40 transition-all duration-100">
+                <tr className="*:p-4 hover:bg-gray-100/40 transition-all duration-100" key={party.id}>
                   <td>{party.id}</td>
                   <td>{party.navn}</td>
                   <td>{party.adresse + ', ' + fullPostal}</td>
