@@ -19,7 +19,7 @@ export default function SearchInput() {
   }
 
   return (
-    <Suspense>
+    <>
       <input
         className="w-96 p-3 border shadow-sm rounded-lg my-2"
         type="text"
@@ -28,6 +28,6 @@ export default function SearchInput() {
         }}
         placeholder="Søk etter parti..."
       />
-    </Suspense>
+    </>
   );
 }

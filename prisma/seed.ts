@@ -96,7 +96,27 @@ async function main() {
       },
     }),
   ]);
-  console.log({ poststedResponse, partiResponse });
+  const stemmeResponse = await Promise.all([
+    prisma.stemme.upsert({
+      where: { id: 1 },
+      update: {},
+      create: {
+        partiId: 1,
+        personNr: '25013926614',
+        kommune: 'Oslo',
+      },
+    }),
+    prisma.stemme.upsert({
+      where: { id: 2 },
+      update: {},
+      create: {
+        partiId: 3,
+        personNr: '22045414403',
+        kommune: 'Fredrikstad',
+      },
+    }),
+  ]);
+  console.log({ poststedResponse, partiResponse, stemmeResponse });
 }
 main()
   .then(async () => {

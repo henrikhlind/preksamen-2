@@ -23,22 +23,20 @@ export default function KommuneSelect(props: any) {
   return (
     <div className="my-2 flex flex-col gap-1">
       <label htmlFor="kommune">Velg kommune</label>
-      <Suspense>
-        <select
-          className="border rounded-lg p-2"
-          name="kommune"
-          id="kommune"
-          onChange={(e) => {
-            handleSelect(e.target.value);
-          }}
-        >
-          {votes.map((vote: any) => (
-            <option key={vote.kommune} value={vote.kommune}>
-              {vote.kommune}
-            </option>
-          ))}
-        </select>
-      </Suspense>
+      <select
+        className="border rounded-lg p-2"
+        name="kommune"
+        id="kommune"
+        onChange={(e) => {
+          handleSelect(e.target.value);
+        }}
+      >
+        {votes.map((vote: any) => (
+          <option key={vote.kommune} value={vote.kommune}>
+            {vote.kommune}
+          </option>
+        ))}
+      </select>
     </div>
   );
 }
