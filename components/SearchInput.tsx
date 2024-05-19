@@ -19,7 +19,7 @@ export default function SearchInput() {
   }
 
   return (
-    <Suspense fallback={<p>Laster inn...</p>}>
+    <Suspense>
       <input
         className="w-96 p-3 border shadow-sm rounded-lg my-2"
         type="text"

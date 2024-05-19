@@ -1,4 +1,5 @@
 import SearchInput from '@/components/SearchInput';
+import { Suspense } from 'react';
 
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
@@ -20,7 +21,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <header className="absolute top-0 w-screen h-20 flex justify-center items-center">
-          <SearchInput />
+          <Suspense>
+            <SearchInput />
+          </Suspense>
         </header>
         <main className="mt-[5rem] mb-10">{children}</main>
       </body>
