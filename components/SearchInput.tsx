@@ -1,6 +1,7 @@
 'use client';
 
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
+import { Suspense } from 'react';
 
 export default function SearchInput() {
   const searchParams = useSearchParams();
@@ -18,7 +19,7 @@ export default function SearchInput() {
   }
 
   return (
-    <>
+    <Suspense fallback={<p>Laster inn...</p>}>
       <input
         className="w-96 p-3 border shadow-sm rounded-lg my-2"
         type="text"
@@ -27,6 +28,6 @@ export default function SearchInput() {
         }}
         placeholder="Søk etter parti..."
       />
-    </>
+    </Suspense>
   );
 }

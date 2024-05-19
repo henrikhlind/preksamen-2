@@ -11,19 +11,21 @@ export default async function Home({ searchParams }: { searchParams?: any }) {
   const votes = await prisma.stemme.findMany();
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center">
-      <h1 className="text-xl font-semibold my-2">Landsvisning</h1>
-      <Suspense fallback={<p>Henter data...</p>}>
-        <PartyTable query={query} />
-      </Suspense>
+    <Suspense fallback={<p>Laster inn...</p>}>
+      <main className="flex min-h-screen flex-col items-center justify-center">
+        <h1 className="text-xl font-semibold my-2">Landsvisning</h1>
+        <Suspense fallback={<p>Henter data...</p>}>
+          <PartyTable query={query} />
+        </Suspense>
 
-      <h1 className="text-xl font-semibold mt-8 mb2">Kommunevisning</h1>
+        <h1 className="text-xl font-semibold mt-8 mb2">Kommunevisning</h1>
 
-      <KommuneSelect votes={votes} />
+        <KommuneSelect votes={votes} />
 
-      <Suspense fallback={<p>Henter data...</p>}>
-        <PartyTable query={query} kommune={kommune} />
-      </Suspense>
-    </main>
+        <Suspense fallback={<p>Henter data...</p>}>
+          <PartyTable query={query} kommune={kommune} />
+        </Suspense>
+      </main>
+    </Suspense>
   );
 }
