@@ -21,3 +21,10 @@ model poststed {
   sted   String
   parti  parti[]
 }
+
+model stemme {
+  id       Int    @id @default(autoincrement())
+  partiId  Int
+  personNr String
+  kommune  String
+}

@@ -1,3 +1,5 @@
+import SearchInput from '@/components/SearchInput';
+
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -16,7 +18,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <header className="absolute top-0 w-screen h-20 flex justify-center items-center">
+          <SearchInput />
+        </header>
+        <main className="mt-[5rem] mb-10">{children}</main>
+      </body>
     </html>
   );
 }
